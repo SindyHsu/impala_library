@@ -1,0 +1,214 @@
+==============================================================================
+Cloudera JDBC Driver for Impala Release Notes 
+==============================================================================
+
+The release notes provide details of enhancements, features, and known issues 
+in Cloudera JDBC Driver for Impala 2.6.9, as well as the version history. 
+
+
+2.6.9 =======================================================================
+
+Released 2019-02-08
+
+Resolved Issues
+The following issue has been resolved in Cloudera JDBC Driver for Impala 
+2.6.9.
+
+ * [00137281][IMPJ-437] After a query fails on the server side, subsequent 
+   queries on driver side also fail.
+
+
+Breaking Changes =============================================================
+
+The following are breaking changes to driver functionality. These changes may 
+cause some workflows from earlier versions of the driver to fail.
+
+
+2.6.1 ------------------------------------------------------------------------
+
+ * Removed support for JDBC 3 (Java 5)
+
+   Beginning with this release, the driver no longer supports JDBC 3 (Java 
+   5). Only JDBC 4 (Java 6) and JDBC 4.1 (Java 7) are supported.
+
+
+Version History ==============================================================
+
+2.6.8 ------------------------------------------------------------------------
+
+Released 2019-01-25
+
+Enhancements & New Features
+
+ * [IMPJ-422] Support for Impala 3.0 and CDH 6.0
+
+   The driver now supports Impala versions 1.0.1 through 3.0, and CDH 
+   versions 5.0 through 6.0.
+   
+ * [00134274][IMPJ-419] UPSERT queries supported for Apache Kudu tables
+
+   You can now execute UPSERT queries when using prepared statements to query 
+   Kudu tables through Impala.
+
+ * [IMPJ-415][IMPJ-420] Updated third-party libraries
+
+   The driver has been updated to use the following libraries:
+   - Hive Service RPC 3.1.1
+   - Apache ZooKeeper 3.4.13
+   
+ * [IMPJ-433] Updated Altus SDK for Java
+
+   The driver now uses a newer version of the Altus SDK for Java, which
+   provides protection against security vulnerabilities that have been found 
+   in the Jackson libraries.
+
+ * [IMPJ-427] Improved error messaging for Altus Service Discovery
+ 
+   The driver now provides more detailed messages for errors related to the
+   Altus Service Discovery feature.
+
+
+Resolved Issues
+The following issue has been resolved in Cloudera JDBC Driver for Impala 
+2.6.8.
+
+ * [00133349][IMPJ-402] When executing a statement that only contains a 
+   comment, the driver returns an error.
+   
+
+2.6.6 ------------------------------------------------------------------------
+
+Released 2018-11-08
+
+Enhancements & New Features
+
+ * [IMPJ-361] Improved scalar function support
+
+   The driver now defaults to the native implementations of scalar functions
+   where they are supported by the Impala server.
+
+ * [IMPJ-403][IMPJ-413][IMPJ-416] Updated third-party libraries
+
+   The driver has been updated to use:
+   - Thrift 0.11.0
+   - Log4j 1.2.17
+   - slf4j-api and slfj-log4j12 1.7.25
+
+ * [IMPJ-410] Dynamic service discovery through Cloudera Altus
+
+   The driver can now discover and connect to Impala services through Cloudera
+   Altus. For detailed information about configuring this type of connection, 
+   see the Installation and Configuration Guide.
+
+
+2.6.4 ------------------------------------------------------------------------
+
+Released 2018-06-29
+
+Enhancements & New Features
+
+ * [IMPJ-397] Support for Impala 2.12 and CDH 5.15
+
+   The driver now supports Impala versions 1.0.1 through 2.12, and CDH 
+   versions 5.0 through 5.15.
+
+
+Resolved Issues
+The following issue was resolved in Cloudera JDBC Driver for Impala 
+2.6.4.
+
+ * [00116966][IMPJ-386] Documentation for the SocketTimeout configuration 
+   option is incorrect.
+
+
+2.6.3 ------------------------------------------------------------------------ 
+
+Released 2018-04-18
+
+Enhancements & New Features
+
+ * [IMPJ-380] Updated Apache ZooKeeper library
+
+   The driver has been upgraded to use Apache ZooKeeper 3.4.11.
+
+ * [IMPJ-381] Third-party license file
+
+   The driver package now includes the file third-party-licenses.txt. This 
+   text file contains the licenses for all third-party software used in the 
+   driver. The third-party license information is also available in the 
+   Installation and Configuration Guide.
+
+
+Resolved Issues
+The following issue has been resolved in Cloudera JDBC Driver for Impala 
+2.6.3.
+
+ * [00115517][IMPJ-353] When attempting to close a statement that is 
+   already closed, the driver logs an error.
+
+
+2.6.2 ------------------------------------------------------------------------ 
+
+Released 2018-04-06
+
+Enhancements & New Features
+
+ * Updated Apache ZooKeeper library
+
+   The driver has been upgraded to use Apache ZooKeeper 3.4.7.
+
+
+2.6.1 ------------------------------------------------------------------------
+
+Released 2018-03-16
+
+Enhancements & New Features
+
+ * Improved installation process
+
+   Third-party libraries are now bundled with the driver as a shaded jar file.
+
+ * Updated hive-service
+
+   The driver has been upgraded to use hive-service-2.0.1 with JDBC 4.1 and 
+   hive-service-1.1.1 for JDBC 4.
+
+ * Updated third-party libraries
+
+   The driver has been upgraded to use http-client 4.5.3, http-core 4.4.6, 
+   commons-codec 1.9, and commons-logging 1.2.
+
+
+Resolved Issues
+The following issues were resolved in Cloudera JDBC Driver for Impala 
+2.6.1.
+
+ * [00115543] A string literal after a back-tick ( ` ) is treated as a 
+   comment.
+
+ * [00115424] When the driver attempts to connect to the server using 
+   Beeline, an error occurs on the server and an exception is logged by the 
+   driver. 
+
+   This issue has been resolved. Now, when connecting to the server using 
+   Beeline, connection properties such as "driver" and "url" are no longer 
+   treated as configuration properties for the server, and the driver does 
+   not send SET queries to the server with these properties.
+
+
+============================================================================== 
+Contact Us 
+============================================================================== 
+
+If you are having difficulties using the driver, our Community Forum 
+(http://community.cloudera.com) may have your solution. In addition to 
+providing user to user support, our forums are a great place to share your 
+questions, comments, and feature requests with us. 
+
+If you are a Subscription customer you may also use the Cloudera Support 
+Portal (http://www.cloudera.com/content/cloudera/en/support/home.html) to 
+search the Knowledge Base or file a Case.
+
+Important: To help us assist you, prior to contacting Cloudera Support please 
+prepare a detailed summary of the client and server environment including 
+operating system version, patch level, and configuration.
